@@ -127,3 +127,4 @@ legend { font-weight: 600; margin-bottom: 8px; font-size: 15px; }
   .links a, .linkbtn { padding: 8px; font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.linklike { background: none; border: 0; padding: 0; color: var(--plum); text-decoration: underline; font: inherit; font-size: 14px; }
