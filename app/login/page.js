@@ -44,7 +44,7 @@ export default function Login() {
         <h1>Log in or sign up</h1>
         {sent ? (
           <form onSubmit={verify} className="form">
-            <p>We&apos;ve emailed <strong>{email}</strong>. Open it and tap <strong>Sign in</strong>, on the same device you want to use. If the email shows a code, you can type it here instead.</p>
+            <p>We&apos;ve emailed a login code to <strong>{email}</strong>. Type it here. It works even if you read the email on your phone.</p>
             <label>Login code
               <input
                 inputMode="numeric"
@@ -73,7 +73,7 @@ export default function Login() {
               <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" autoComplete="email" />
             </label>
             {err && <p className="error">{err}</p>}
-            <button className="btn" disabled={busy}>{busy ? "Sending…" : "Send me a login link"}</button>
+            <button className="btn" disabled={busy}>{busy ? "Sending…" : "Send me a login code"}</button>
             <p className="muted small">No password needed. New here? This creates your account.</p>
           </form>
         )}
