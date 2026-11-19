@@ -145,3 +145,14 @@ drop policy if exists "Users delete own photos" on storage.objects;
 create policy "Users delete own photos" on storage.objects
   for delete to authenticated
   using (bucket_id = 'photos' and (storage.foldername(name))[1] = auth.uid()::text);
+
+-- API ACCESS ----------------------------------------------------------
+-- Needed when "Grant API access to new tables automatically" is off.
+-- Row Level Security above still decides which rows each user can see or change.
+grant usage on schema public to anon, authenticated;
+grant select on public.listings to anon, authenticated;
+grant insert, update, delete on public.listings to authenticated;
+grant select, insert, update on public.bookings to authenticated;
+grant usage, select on all sequences in schema public to authenticated;
+grant execute on function public.is_host_of(bigint) to anon, authenticated;
+grant execute on function public.booked_dates(bigint) to anon, authenticated;
